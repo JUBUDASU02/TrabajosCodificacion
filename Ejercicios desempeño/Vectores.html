@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Vector Cuadrado</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            padding: 20px;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        .contenedor {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+        pre {
+            background: #eee;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            font-size: 14px;
+        }
+        button {
+            padding: 10px 20px;
+            background: #0073e6;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+            display: block;
+            margin: 10px auto;
+        }
+        button:hover {
+            background: #005bb5;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Generador de Vector y su Cuadrado</h1>
+
+    <button onclick="generarVectores()">Generar Vectores</button>
+
+    <div class="contenedor">
+        <h2>Vector Original (500 números)</h2>
+        <pre id="vectorOriginal"></pre>
+    </div>
+
+    <div class="contenedor">
+        <h2>Vector Cuadrado</h2>
+        <pre id="vectorCuadrado"></pre>
+    </div>
+
+    <script>
+        function generarVectores() {
+            let vectorOriginal = [];
+            let vectorCuadrado = [];
+
+            // Crear 500 números aleatorios entre 1 y 501
+            for (let i = 0; i < 500; i++) {
+                let num = Math.floor(Math.random() * 501) + 1;
+                vectorOriginal.push(num);
+                vectorCuadrado.push(num * num);
+            }
+
+            // Mostrar en pantalla
+            document.getElementById("vectorOriginal").textContent = JSON.stringify(vectorOriginal, null, 2);
+            document.getElementById("vectorCuadrado").textContent = JSON.stringify(vectorCuadrado, null, 2);
+        }
+    </script>
+
+</body>
+</html>

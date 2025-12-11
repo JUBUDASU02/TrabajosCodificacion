@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Comisiones Mazda</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            background: white;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background: #0073e6;
+            color: white;
+        }
+        button {
+            padding: 10px 20px;
+            background: #0073e6;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #005bb5;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Comisiones de Vendedores Mazda</h1>
+    <button onclick="generarComisiones()">Generar Ventas</button>
+
+    <table id="tablaComisiones">
+        <thead>
+            <tr>
+                <th>Vendedor</th>
+                <th>Venta Mensual</th>
+                <th>Comisión (%)</th>
+                <th>Total con Comisión</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        function generarComisiones() {
+            const tbody = document.querySelector("#tablaComisiones tbody");
+            tbody.innerHTML = "";
+
+            for (let i = 1; i <= 100; i++) {
+
+                let venta = Math.floor(Math.random() * (10000000 - 1000000 + 1)) + 1000000;
+                let comision = 0;
+
+                // Lógica igual a la del Python optimizado
+                if (venta < 3000000) {
+                    comision = 0.03;
+                } else if (venta < 5000000) {
+                    comision = 0.04;
+                } else if (venta < 7000000) {
+                    comision = 0.05;
+                } else {
+                    comision = 0.06;
+                }
+
+                let total = venta * (1 + comision);
+
+                // Insertar fila en tabla
+                let fila = `
+                    <tr>
+                        <td>Vendedor ${i}</td>
+                        <td>$${venta.toLocaleString()}</td>
+                        <td>${(comision * 100).toFixed(0)}%</td>
+                        <td>$${total.toLocaleString()}</td>
+                    </tr>
+                `;
+
+                tbody.innerHTML += fila;
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Descuento en Supermercado</title>
+</head>
+<body>
+  <div class="contenedor">
+    <h2>Promoción del Supermercado</h2>
+
+    <label for="total">Total de la compra ($):</label><br>
+    <input type="number" id="total" ><br>
+
+    <button onclick="calcularDescuento()">Calcular descuento</button>
+
+    <p id="resultado"></p>
+  </div>
+
+  <script>
+    function calcularDescuento() {
+      let total = parseFloat(document.getElementById("total").value);
+
+      if (isNaN(total) || total <= 0) {
+        document.getElementById("resultado").innerText = "Por favor, ingresa un total válido.";
+        return;
+      }
+
+      // Número al azar entre 1 y 100
+      let numeroAzar = Math.floor(Math.random() * 100) + 1;
+
+      let descuento;
+      if (numeroAzar < 74) {
+        descuento = total * 0.15;
+      } else {
+        descuento = total * 0.20;
+      }
+
+      let totalFinal = total - descuento;
+
+      document.getElementById("resultado").innerHTML = `
+        Número al azar: <strong>${numeroAzar}</strong><br>
+        Descuento aplicado: <strong>$${descuento.toFixed(2)}</strong><br>
+        Total a pagar: <strong>$${totalFinal.toFixed(2)}</strong>
+      `;
+    }
+  </script>
+</body>
+</html>

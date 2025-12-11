@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Descuento por Clave</title>
+</head>
+<body>
+
+  <div class="contenedor">
+    <h2>Calculadora de Descuento por Clave</h2>
+
+    <input type="text" id="nombre" placeholder="Nombre del artículo"><br>
+    <input type="number" id="clave" placeholder="Clave"><br>
+    <input type="number" id="precio" placeholder="Precio original"><br>
+    <button onclick="calcularDescuento()">Calcular Descuento</button>
+
+    <div id="resultado"></div>
+  </div>
+
+  <script>
+    function calcularDescuento() {
+      // Obtener los valores del formulario
+      let nombre = document.getElementById("nombre").value;
+      let clave = parseInt(document.getElementById("clave").value);
+      let precio = parseFloat(document.getElementById("precio").value);
+      let descuento = 0;
+      let precioFinal;
+
+      // Validar que los datos sean correctos
+      if (!nombre || isNaN(clave) || isNaN(precio)) {
+        document.getElementById("resultado").innerText = "Por favor, completa todos los campos correctamente.";
+        return;
+      }
+
+      // Calcular descuento según la clave
+      if (clave === 1) {
+        descuento = 0.10; // 10%
+      } else if (clave === 2) {
+        descuento = 0.20; // 20%
+      } else if (clave === 3 ) {
+        descuento = 0; // sin descuento toca mirar alternativa para no poner un numero :)
+      } else {
+        document.getElementById("resultado").innerText = "Ingrese una clave correcta (1 o 2).";
+        return;
+      }
+
+      // Calcular precio final
+      precioFinal = precio - (precio * descuento);
+
+      // Mostrar resultado
+      document.getElementById("resultado").innerHTML = `
+        <p>Artículo: <strong>${nombre}</strong></p>
+        <p>Clave: <strong>${clave.toString().padStart(2, "0")}</strong></p>
+        <p>Precio original: <strong>$${precio.toFixed(2)}</strong></p>
+        <p>Descuento aplicado: <strong>${(descuento * 100).toFixed(0)}%</strong></p>
+        <p>Precio final: <strong>$${precioFinal.toFixed(2)}</strong></p>
+      `;
+    }
+  </script>
+
+</body>
+</html>
+

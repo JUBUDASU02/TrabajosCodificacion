@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Control de Notas</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            padding: 20px;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            background: #0073e6;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 15px auto;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #005bb5;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background: #0073e6;
+            color: white;
+        }
+        .resultados {
+            background: white;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.1);
+        }
+        .resultados p {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Sistema de Control de Notas</h1>
+
+    <button onclick="generarMatriz()">Generar Matriz y Calcular</button>
+
+    <div class="resultados">
+        <h2>Resultados</h2>
+        <p id="aprobados"></p>
+        <p id="recuperacion"></p>
+        <p id="maximos"></p>
+    </div>
+
+    <h2>Matriz Generada</h2>
+    <table id="tablaDatos">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nota 1</th>
+                <th>Nota 2</th>
+                <th>Nota 3</th>
+                <th>Nota Final</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+
+    <script>
+        function generarMatriz() {
+            const tbody = document.querySelector("#tablaDatos tbody");
+            tbody.innerHTML = "";
+
+            let aprobados = 0;
+            let recuperacion = 0;
+            let maximos = 0;
+
+            // Crear matriz M(50,5)
+            for (let i = 1; i <= 50; i++) {
+
+                // Generar notas entre 1.0 y 5.0 con un decimal
+                let n1 = (Math.random() * 4 + 1).toFixed(1);
+                let n2 = (Math.random() * 4 + 1).toFixed(1);
+                let n3 = (Math.random() * 4 + 1).toFixed(1);
+
+                // Nota final: promedio
+                let notaFinal = (
+                    (parseFloat(n1) + parseFloat(n2) + parseFloat(n3)) / 3
+                ).toFixed(1);
+
+                // Conteo de categorías
+                if (notaFinal >= 3.0 && notaFinal <= 5.0) {
+                    aprobados++;
+                } else if (notaFinal >= 2.0 && notaFinal < 3.0) {
+                    recuperacion++;
+                }
+                if (notaFinal == 5.0) {
+                    maximos++;
+                }
+
+                // Crear fila en tabla
+                let fila = `
+                    <tr>
+                        <td>${100 + i}</td>
+                        <td>${n1}</td>
+                        <td>${n2}</td>
+                        <td>${n3}</td>
+                        <td>${notaFinal}</td>
+                    </tr>
+                `;
+                tbody.innerHTML += fila;
+            }
+
+            // Mostrar resultados
+            document.getElementById("aprobados").textContent =
+                "A) Cantidad de alumnos aprobados (≥ 3.0): " + aprobados;
+
+            document.getElementById("recuperacion").textContent =
+                "B) Alumnos con derecho a recuperación (2.0 – 2.9): " + recuperacion;
+
+            document.getElementById("maximos").textContent =
+                "C) Alumnos con nota máxima (5.0): " + maximos;
+        }
+    </script>
+
+</body>
+</html>

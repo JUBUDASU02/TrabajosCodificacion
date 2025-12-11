@@ -1,0 +1,37 @@
+        <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valor Absoluto en JavaScript</title>
+</head>
+<body>
+  <div class="contenedor">
+    <h2>Calculadora de Valor Absoluto</h2>
+    <input type="number" id="numero" placeholder="Ingresa un número">
+    <button onclick="calcular()">Calcular</button>
+    <p id="resultado"></p>
+  </div>
+  <script>
+    function calcular() {
+      let x = parseFloat(document.getElementById("numero").value);
+      let absoluto;
+// isNaN es una restriccion para saber si "x" es un numero o no
+      if (isNaN(x)) {
+        document.getElementById("resultado").innerText = "Por favor, ingresa un número válido."; //.getElementById es para obtener el elemento del HTML
+        return;
+      }
+// Condicional para calcular el valor absoluto
+      if (x < 0) {
+        absoluto = -x; // cambia el signo si es negativo
+      } else {
+        absoluto = x; // si es positivo o cero, queda igual
+      }
+// Mostrar el resultado
+      document.getElementById("resultado").innerText = 
+        "El valor absoluto de " + x + " es: " + absoluto;
+    }
+  </script>
+
+</body>
+</html>
