@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>MidNightCode - Inicio de Sesión</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#d4af37",
+                        "background-light": "#fdfaf3",
+                        "background-dark": "#121212",
+                        "card-dark": "#1e1e1e",
+                        "gold": {
+                            "DEFAULT": "#d4af37",
+                            "50": "#fcf8e7",
+                            "100": "#faf1d0",
+                            "200": "#f5e6a2",
+                            "300": "#f0da74",
+                            "400": "#eccb46",
+                            "500": "#d4af37",
+                            "600": "#b88e2c",
+                            "700": "#967022",
+                            "800": "#755619",
+                            "900": "#543d10"
+                        }
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-display">
+    <div class="relative flex min-h-screen w-full flex-col bg-background-light dark:bg-background-dark items-center justify-center p-4">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,_rgba(212,175,55,0.1),_transparent_40%),radial-gradient(circle_at_80%_80%,_rgba(212,175,55,0.1),_transparent_40%)]"></div>
+        
+        <div class="w-full max-w-md z-10">
+            <div class="flex flex-col items-center bg-white dark:bg-card-dark rounded-xl shadow-lg border border-slate-200/20 dark:border-gold-900/40 p-8 sm:p-10">
+                <div class="mb-6 flex flex-col items-center">
+                    <svg class="text-gold h-12 w-auto" fill="none" height="48" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="60" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2.69l5.66 5.66a2 2 0 0 1 .59 1.42V18a2 2 0 0 1-2 2H7.75a2 2 0 0 1-2-2V9.77a2 2 0 0 1 .59-1.42L12 2.69z"></path>
+                        <path d="M16 18v-4a4 4 0 0 0-4-4H8"></path>
+                        <path d="M12 22v-2"></path>
+                    </svg>
+                    <h1 class="text-gold tracking-wider text-xl font-semibold mt-2">MidNightCode</h1>
+                </div>
+                
+                <h2 class="text-slate-800 dark:text-white tracking-tight text-2xl sm:text-3xl font-bold leading-tight text-center pb-2">Inicio de Sesión</h2>
+                <p class="text-slate-500 dark:text-slate-400 text-sm sm:text-base text-center mb-8">Bienvenido de nuevo. Por favor, ingresa tus datos.</p>
+                
+                <form id="loginForm" class="w-full flex flex-col gap-4">
+                    <label class="flex flex-col w-full">
+                        <p class="text-slate-800 dark:text-slate-200 text-sm font-medium leading-normal pb-2">Correo electrónico o usuario</p>
+                        <div class="flex w-full flex-1 items-stretch rounded-lg">
+                            <input id="username" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-900 dark:text-slate-100 focus:outline-0 focus:ring-2 focus:ring-gold/50 border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 focus:border-gold dark:focus:border-gold h-12 placeholder:text-slate-400 dark:placeholder:text-slate-500 p-[15px] pr-2 text-base font-normal leading-normal" placeholder="Introduce tu correo o usuario" required/>
+                            <div class="text-slate-400 dark:text-slate-400 flex bg-slate-50 dark:bg-slate-800/50 items-center justify-center pl-2 pr-3 rounded-r-lg">
+                                <span class="material-symbols-outlined">person</span>
+                            </div>
+                        </div>
+                        <span id="usernameError" class="text-red-500 text-sm mt-1 hidden"></span>
+                    </label>
+                    
+                    <label class="flex flex-col w-full">
+                        <p class="text-slate-800 dark:text-slate-200 text-sm font-medium leading-normal pb-2">Contraseña</p>
+                        <div class="flex w-full flex-1 items-stretch rounded-lg">
+                            <input id="password" type="password" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-900 dark:text-slate-100 focus:outline-0 focus:ring-2 focus:ring-gold/50 border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 focus:border-gold dark:focus:border-gold h-12 placeholder:text-slate-400 dark:placeholder:text-slate-500 p-[15px] pr-2 text-base font-normal leading-normal" placeholder="Introduce tu contraseña" required/>
+                            <div class="text-slate-400 dark:text-slate-400 flex bg-slate-50 dark:bg-slate-800/50 items-center justify-center pl-2 pr-3 rounded-r-lg">
+                                <span class="material-symbols-outlined">lock</span>
+                            </div>
+                        </div>
+                        <span id="passwordError" class="text-red-500 text-sm mt-1 hidden"></span>
+                    </label>
+                    
+                    <a class="text-gold hover:text-gold-600 dark:hover:text-gold-400 text-sm font-medium leading-normal self-end mt-3 hover:underline" href="recuperar.html">¿Olvidaste tu contraseña?</a>
+                    
+                    <button type="submit" class="flex items-center justify-center text-base font-semibold px-6 py-3 bg-gold text-slate-900 rounded-lg h-12 w-full mt-6 hover:bg-gold-600 dark:hover:bg-gold-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold/70 dark:focus:ring-offset-background-dark transition-colors duration-200">
+                        Iniciar Sesión
+                    </button>
+                </form>
+                
+                <div class="mt-8 text-center">
+                    <p class="text-sm text-slate-600 dark:text-slate-400">
+                        ¿No tienes una cuenta? <a class="font-semibold text-gold hover:text-gold-600 dark:hover:text-gold-400 hover:underline" href="registro.html">Crear cuenta</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/auth.js"></script>
+</body>
+</html>
