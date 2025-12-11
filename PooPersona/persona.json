@@ -1,0 +1,26 @@
+[
+    {
+        "nombre": "Jair",
+        "apellido": "Arias",
+        "fechaNacimiento": "2008-04-17",
+        "email": "jair.qek@gmail.com",
+        "telefono": "3017330341",
+        "genero": "M"
+    },
+    {
+        "nombre": "Maria",
+        "apellido": "Cueca",
+        "fechaNacimiento": "1972-03-25",
+        "email": "maria@gmail.com",
+        "telefono": "3214379283",
+        "genero": "F"
+    },
+    {
+        "nombre": "Hector",
+        "apellido": "Arias",
+        "fechaNacimiento": "1995-01-18",
+        "email": "hectorqek@gmail.com",
+        "telefono": "3178546648",
+        "genero": "M"
+    }
+]
