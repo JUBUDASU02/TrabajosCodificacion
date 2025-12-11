@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Ayuda</title>
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+  <!-- Estilos -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Bootstrap Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+<body class="degrade-body">
+  <h1 class="text-center py-4">Panel Cliente</h1>
+  
+  <!-- Nombre de la discoteca -->
+  <header class="text-center py-4">
+    <h1 class="titulo-discoteca">MONACO</h1>
+  </header>
+
+  <!-- Barra de navegación -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+    <div class="container justify-content-center">
+      <ul class="navbar-nav gap-4">
+        <li class="nav-item"><a class="nav-link active" href="cliente.html">Servicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="Reserva.html">Reserva</a></li>
+        <li class="nav-item"><a class="nav-link" href="Cancion.html">Canción</a></li>
+        <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+        <li class="nav-item"><a class="nav-link" href="ayudaCli.html">Ayuda</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html">Salir</a></li>
+      </ul>
+    </div>
+  </nav>
+  <section id="reserva" class="container py-5">
+  <h2 class="text-center mb-4">Reserva tu Experiencia</h2>
+  <p class="text-center"> Elige el tipo de reserva que desees y asegura tu lugar en nuestra discoteca.</p>
+  <div class="row g-4">
+    <!-- Asistencia -->
+    <div class="col-md-6 col-lg-3">
+      <div class="card reserva-card shadow h-100 text-center">
+        <div class="card-body">
+          <div class="icono mb-3">🎟</div>
+          <h5 class="card-title">Asistencia</h5>
+          <p class="card-text">Entrada general para disfrutar de toda la fiesta.</p>
+          <button class="btn btn-primary" onclick="reservar('Asistencia')">Reservar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mesa -->
+    <div class="col-md-6 col-lg-3">
+      <div class="card reserva-card shadow h-100 text-center">
+        <div class="card-body">
+          <div class="icono mb-3">🍷</div>
+          <h5 class="card-title">Mesa</h5>
+          <p class="card-text">Reserva tu mesa privada para mayor comodidad.</p>
+          <button class="btn btn-primary" onclick="reservar('Mesa')">Reservar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Zona VIP -->
+    <div class="col-md-6 col-lg-3">
+      <div class="card reserva-card shadow h-100 text-center">
+        <div class="card-body">
+          <div class="icono mb-3">👑</div>
+          <h5 class="card-title">Zona VIP</h5>
+          <p class="card-text">Acceso exclusivo con atención personalizada.</p>
+          <button class="btn btn-primary" onclick="reservar('Zona VIP')">Reservar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Parqueadero -->
+    <div class="col-md-6 col-lg-3">
+      <div class="card reserva-card shadow h-100 text-center">
+        <div class="card-body">
+          <div class="icono mb-3">🚗</div>
+          <h5 class="card-title">Parqueadero</h5>
+          <p class="card-text">Asegura tu lugar de parqueo cómodo y seguro.</p>
+          <button class="btn btn-primary" onclick="reservar('Parqueadero')">Reservar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confirmación -->
+  <div id="mensajeReserva" class="alert alert-success mt-4 d-none text-center"></div>
+</section>
+</body>
+</html>

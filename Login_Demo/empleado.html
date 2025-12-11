@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ayuda</title>
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+  <!-- Estilos -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Bootstrap Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="degrade-body">
+  <!-- Nombre de la discoteca -->
+  <header class="text-center py-4">
+    <h1 class="titulo-discoteca">MONACO</h1>
+  </header>
+
+  <!-- Barra de navegación -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+    <div class="container justify-content-center">
+      <ul class="navbar-nav gap-4">
+        <li class="nav-item"><a class="nav-link active" href="empleado.html">Ventas</a></li>
+        <li class="nav-item"><a class="nav-link" href="horarioEmple.html">Horarios</a></li>
+        <li class="nav-item"><a class="nav-link" href="ayudaEmple.html">Ayuda</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html">Salir</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+<!-- copio lo de ventas Xd-->
+
+<!-- Contenido de ventas -->
+  <main class="container-fluid ventas-contenedor py-4">
+    <div class="row">
+      
+      <!-- Columna izquierda: búsqueda y productos -->
+      <div class="col-md-8 p-4">
+        <!-- Buscador -->
+        <div class="mb-4">
+            <input type="text" id="buscador" class="form-control form-control-lg buscador" placeholder="Buscar producto...">
+        </div>
+
+
+<button class="btn btn-outline-light btn-sm" onclick="agregarProducto('Cerveza', 12000)">Añadir</button>
+
+        <!-- Grid de productos -->
+        <div class="row g-4">
+          <!-- Producto 1 -->
+          <div class="col-md-4">
+            <div class="card producto-card text-center" data-nombre="Whisky">
+              <img src="assets/producto1.jpg" class="card-img-top" alt="Producto 1">
+              <div class="card-body">
+                <h5 class="card-title">Whisky</h5>
+                <p class="card-text">$120.000</p>
+<button class="btn btn-outline-light btn-sm" onclick="agregarProducto('Whisky', 120000)">Añadir</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Producto 2 -->
+          <div class="col-md-4">
+            <div class="card producto-card text-center" data-nombre="Aguardiente">
+              <img src="assets/producto2.jpg" class="card-img-top" alt="Producto 2">
+              <div class="card-body">
+                <h5 class="card-title">Aguardiente</h5>
+                <p class="card-text">$90.000</p>
+                <button class="btn btn-outline-light btn-sm" onclick="agregarProducto('Vodka', 90000)">Añadir</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Producto 3 -->
+          <div class="col-md-4">
+            <div class="card producto-card text-center" data-nombre="Cerveza">
+              <img src="assets/producto3.jpg" class="card-img-top" alt="Producto 3">
+              <div class="card-body">
+                <h5 class="card-title">Cerveza</h5>
+                <p class="card-text">$12.000</p>
+                <button class="btn btn-outline-light btn-sm" onclick="agregarProducto('Cerveza', 12000)">Añadir</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Columna derecha: factura -->
+<div class="col-md-4 p-4 factura-wrapper">
+  <h4 class="mb-3 text-white">Factura</h4>
+
+  <!-- Datos del cliente -->
+  <form>
+    <div class="mb-3">
+      <label for="cliente" class="form-label text-white">Nombre del Cliente</label>
+      <input type="text" id="cliente" class="form-control form-control-sm" placeholder="Ingrese nombre" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="documento" class="form-label text-white">Documento</label>
+      <input type="text" id="documento" class="form-control form-control-sm" placeholder="CC / NIT" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="descripcion" class="form-label text-white">Descripción de la venta</label>
+      <textarea id="descripcion" class="form-control form-control-sm" rows="2" placeholder="Ej: Mesa 5, noche de viernes"></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="pago" class="form-label text-white">Método de pago</label>
+      <select id="pago" class="form-select form-select-sm">
+        <option value="efectivo">Efectivo</option>
+        <option value="tarjeta">Tarjeta</option>
+        <option value="transferencia">Transferencia</option>
+      </select>
+    </div>
+  </form>
+
+  <!-- Lista de productos añadidos -->
+  <h5 class="mt-4 text-white">Productos</h5>
+  <ul id="facturaLista" class="list-group mb-3">
+    <!-- Los productos se agregarán aquí dinámicamente -->
+  </ul>
+
+  <!-- Total -->
+  <div class="d-flex justify-content-between text-white mb-3">
+    <strong>Total:</strong>
+    <strong id="totalFactura">$0</strong>
+  </div>
+
+  <!-- Botón de pagar -->
+  <button class="btn btn-primary w-100 py-2">Finalizar Venta / Pagar</button>
+</div>
+
+<script>
+  let factura = [];
+  const facturaLista = document.getElementById("facturaLista");
+  const totalFactura = document.getElementById("totalFactura");
+
+  // Función para actualizar la lista
+  function actualizarFactura() {
+    facturaLista.innerHTML = "";
+    let total = 0;
+
+    factura.forEach((item, index) => {
+      total += item.precio * item.cantidad;
+
+      const li = document.createElement("li");
+      li.className = "list-group-item bg-dark text-white d-flex justify-content-between align-items-center";
+
+      li.innerHTML = `
+        <div>
+          <strong>${item.nombre}</strong><br>
+          <small>$${item.precio.toLocaleString()} x ${item.cantidad}</small>
+        </div>
+        <div>
+          <button class="btn btn-sm btn-success me-1" onclick="aumentarCantidad(${index})">+</button>
+          <button class="btn btn-sm btn-warning me-1" onclick="disminuirCantidad(${index})">-</button>
+          <button class="btn btn-sm btn-danger" onclick="eliminarProducto(${index})">X</button>
+        </div>
+      `;
+
+      facturaLista.appendChild(li);
+    });
+
+    totalFactura.textContent = "$" + total.toLocaleString();
+  }
+
+  // Funciones de acción
+  function agregarProducto(nombre, precio) {
+    const producto = factura.find(p => p.nombre === nombre);
+    if (producto) {
+      producto.cantidad++;
+    } else {
+      factura.push({ nombre, precio, cantidad: 1 });
+    }
+    actualizarFactura();
+  }
+
+  function aumentarCantidad(index) {
+    factura[index].cantidad++;
+    actualizarFactura();
+  }
+
+  function disminuirCantidad(index) {
+    if (factura[index].cantidad > 1) {
+      factura[index].cantidad--;
+    } else {
+      factura.splice(index, 1);
+    }
+    actualizarFactura();
+  }
+
+  function eliminarProducto(index) {
+    factura.splice(index, 1);
+    actualizarFactura();
+  }
+</script>
+<script>
+  const buscador = document.getElementById("buscador");
+  const productos = document.querySelectorAll(".producto-card");
+
+  buscador.addEventListener("keyup", () => {
+    const texto = buscador.value.toLowerCase();
+
+    productos.forEach(producto => {
+      const nombre = producto.getAttribute("data-nombre").toLowerCase();
+      if (nombre.includes(texto)) {
+        producto.parentElement.style.display = "block"; // muestra el contenedor
+      } else {
+        producto.parentElement.style.display = "none"; // oculta el contenedor
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
+
+  
