@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MidNightCode - Recuperar Contraseña</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="stylesheet" href="css/recuperar.css">
+</head>
+<body>
+    <div class="recovery-container">
+        <div class="recovery-content">
+            <header class="recovery-header">
+                <div class="logo-container">
+                    <svg class="logo-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2.69l5.66 5.66a2 2 0 0 1 .59 1.42V18a2 2 0 0 1-2 2H7.75a2 2 0 0 1-2-2V9.77a2 2 0 0 1 .59-1.42L12 2.69z"></path>
+                        <path d="M16 18v-4a4 4 0 0 0-4-4H8"></path>
+                        <path d="M12 22v-2"></path>
+                    </svg>
+                    <span class="logo-text">MidNightCode</span>
+                </div>
+                <h1 class="recovery-title">Recuperar Contraseña</h1>
+            </header>
+            
+            <main class="recovery-main">
+                <div class="recovery-card">
+                    <p class="recovery-description">Ingresa tu correo electrónico y te enviaremos un enlace para restablecer tu contraseña.</p>
+                    
+                    <div class="recovery-form-container">
+                        <form id="recuperarForm" class="recovery-form">
+                            <div class="form-group">
+                                <label class="form-label" for="emailRecuperar">Correo electrónico *</label>
+                                <div class="input-container">
+                                    <span class="input-icon-left material-symbols-outlined">mail</span>
+                                    <input id="emailRecuperar" class="form-input" placeholder="tu.correo@ejemplo.com" type="email" required/>
+                                </div>
+                                <span id="emailRecuperarError" class="error-message"></span>
+                            </div>
+                            
+                            <button type="submit" class="recovery-button">
+                                Enviar enlace de recuperación
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <div id="mensajeExito" class="success-message hidden">
+                        ¡Enlace enviado! Revisa tu correo electrónico para restablecer tu contraseña.
+                    </div>
+                </div>
+            </main>
+            
+            <footer class="recovery-footer">
+                <a class="back-link" href="index.html">
+                    Volver a Iniciar Sesión
+                </a>
+            </footer>
+        </div>
+    </div>
+
+    <script src="/js/recuperar.js"></script>
+</body>
+</html>

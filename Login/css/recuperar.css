@@ -1,0 +1,292 @@
+/* Variables CSS para los colores */
+:root {
+    --primary: #D4AF37;
+    --primary-hover: #C39D2D;
+    --background-light: #121212;
+    --background-dark: #0A0A0A;
+    --text-light: #F5F5F5;
+    --text-dark: #F5F5F5;
+    --subtle-light: #A0A0A0;
+    --subtle-dark: #757575;
+    --surface-light: #1E1E1E;
+    --surface-dark: #181818;
+    --border-light: #424242;
+    --border-dark: #303030;
+    --gold: #d4af37;
+    --gold-50: #fcf8e7;
+    --gold-100: #faf1d0;
+    --gold-200: #f5e6a2;
+    --gold-300: #f0da74;
+    --gold-400: #eccb46;
+    --gold-500: #d4af37;
+    --gold-600: #b88e2c;
+    --gold-700: #967022;
+    --gold-800: #755619;
+    --gold-900: #543d10;
+    --success-color: #10b981;
+    --success-bg: rgba(16, 185, 129, 0.1);
+}
+
+/* Reset y estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-light);
+    color: var(--text-light);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+/* Contenedor principal */
+.recovery-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.recovery-content {
+    width: 100%;
+    max-width: 28rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* Header */
+.recovery-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.logo-icon {
+    height: 2.5rem;
+    width: 2.5rem;
+    color: var(--primary);
+}
+
+.logo-text {
+    font-size: 1.875rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: var(--text-light);
+}
+
+.recovery-title {
+    font-size: 2.25rem;
+    font-weight: 900;
+    line-height: 1.25;
+    letter-spacing: -0.033em;
+    color: var(--text-light);
+}
+
+/* Main content */
+.recovery-main {
+    width: 100%;
+}
+
+.recovery-card {
+    width: 100%;
+    border-radius: 0.75rem;
+    background-color: var(--surface-light);
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2), 0px 1px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-light);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.recovery-description {
+    color: var(--subtle-light);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.recovery-form-container {
+    width: 100%;
+}
+
+.recovery-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Form styles (reutilizando algunos del login) */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.form-label {
+    color: var(--text-light);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    padding-bottom: 0.5rem;
+}
+
+.input-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    position: relative;
+    border-radius: 0.5rem;
+    background-color: var(--background-light);
+    border: 1px solid var(--border-light);
+    height: 3.5rem;
+}
+
+.input-container:focus-within {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.5);
+}
+
+.input-icon-left {
+    position: absolute;
+    left: 1rem;
+    color: var(--subtle-light);
+}
+
+.form-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    color: var(--text-light);
+    height: 100%;
+    padding: 0 1rem 0 3rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    outline: none;
+}
+
+.form-input::placeholder {
+    color: var(--subtle-light);
+}
+
+/* Error message */
+.error-message {
+    color: #ef4444;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: none;
+}
+
+/* Recovery button */
+.recovery-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 5.25rem;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    height: 3rem;
+    padding: 0 1.25rem;
+    width: 100%;
+    margin-top: 1rem;
+    background-color: var(--primary);
+    color: var(--background-light);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.015em;
+    border: none;
+    transition: background-color 0.2s;
+}
+
+.recovery-button:hover {
+    background-color: var(--primary-hover);
+}
+
+.recovery-button:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* Success message */
+.success-message {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: var(--success-bg);
+    color: var(--success-color);
+    font-size: 0.875rem;
+    text-align: center;
+    border: 1px solid var(--success-color);
+    display: none;
+}
+
+.success-message.show {
+    display: block;
+}
+
+/* Footer */
+.recovery-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.back-link {
+    color: var(--primary);
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.5;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* Utilidades */
+.hidden {
+    display: none;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    body {
+        padding: 0.5rem;
+    }
+    
+    .recovery-card {
+        padding: 1.5rem;
+    }
+    
+    .logo-text {
+        font-size: 1.5rem;
+    }
+    
+    .recovery-title {
+        font-size: 1.875rem;
+    }
+    
+    .recovery-description {
+        font-size: 0.875rem;
+    }
+}
